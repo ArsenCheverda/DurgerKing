@@ -2,13 +2,13 @@ import { NextRequest, NextResponse } from "next/server";
 import { getItemById } from "@/app/data/items";
 import { Purchase } from "@/app/types";
 
-// @ts-ignore - This is a demo, in a real app we would use a proper data store
+// @ts-expect-error - This is a demo, in a real app we would use a proper data store
 if (!global.purchases) {
-    // @ts-ignore
+    // @ts-expect-error
     global.purchases = [];
 }
 
-// @ts-ignore
+// @ts-expect-error
 const purchases = global.purchases;
 
 export async function GET(req: NextRequest) {

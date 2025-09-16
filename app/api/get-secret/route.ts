@@ -2,13 +2,13 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getSecretForItem } from '@/app/server/item-secrets';
 
 // Make purchases accessible to other routes
-// @ts-ignore - This is a demo, in a real app we would use a proper data store
+// @ts-expect-error - This is a demo, in a real app we would use a proper data store
 if (!global.purchases) {
-  // @ts-ignore
+  // @ts-expect-error
   global.purchases = [];
 }
 
-// @ts-ignore
+// @ts-expect-error
 const purchases = global.purchases;
 
 export async function GET(req: NextRequest) {
