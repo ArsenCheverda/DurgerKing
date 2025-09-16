@@ -4,11 +4,11 @@ import { getSecretForItem } from '@/app/server/item-secrets';
 // Make purchases accessible to other routes
 // @ts-expect-error - This is a demo, in a real app we would use a proper data store
 if (!global.purchases) {
-  // @ts-expect-error
+  // @ts-expect-error - same
   global.purchases = [];
 }
 
-// @ts-expect-error
+// @ts-expect-error - same
 const purchases = global.purchases;
 
 export async function GET(req: NextRequest) {
@@ -20,7 +20,7 @@ export async function GET(req: NextRequest) {
             return NextResponse.json({ error: 'Missing required parameters' }, { status: 400 });
         }
 
-        // Verify the purchase exists
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const purchase = purchases.find((p: any) =>
             p.itemId === itemId && p.transactionId === transactionId
         );

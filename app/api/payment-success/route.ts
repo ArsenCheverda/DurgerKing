@@ -4,11 +4,11 @@ import { getSecretForItem } from '@/app/server/item-secrets';
 // Make purchases accessible to other routes
 // @ts-expect-error - This is a demo, in a real app we would use a proper data store
 if (!global.purchases) {
-  // @ts-expect-error
+  // @ts-expect-error - same
   global.purchases = [];
 }
 
-// @ts-expect-error
+// @ts-expect-error - same
 const purchases = global.purchases;
 
 export async function POST(req: NextRequest) {
